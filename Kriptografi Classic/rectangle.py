@@ -18,22 +18,23 @@ plain: rajin pangkal pandai
 
 def encrypt(plain, cols):
     cipher = ""
-    n_lines = len(plain) // cols
+    n_lines = len(plain) // cols + (len(plain) % cols > 0)
     for i in range(cols):
         temp = i
         for _ in range(n_lines):
-            cipher += plain[temp] if temp < len(plain) else " "
+            cipher += plain[temp] if temp < len(plain) else "*"
             temp += cols
     
     return cipher
 
 def decrypt(cipher, cols):
     plain = ""
-    n_lines = len(cipher) // cols
+    n_lines = len(cipher) // cols + (len(cipher) % cols > 0)
     for i in range(n_lines):
         temp = i
         for _ in range(cols):
-            plain += cipher[temp] if temp < len(cipher) else " "
+            if cipher[temp] != "*":
+                plain += cipher[temp] if temp < len(cipher) else " "
             temp += n_lines
 
     return plain

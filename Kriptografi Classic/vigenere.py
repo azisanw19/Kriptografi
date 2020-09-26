@@ -8,33 +8,33 @@ rajin pangkal pandai
 salio raogmam raodci
 """
 
-letters = "abcdefghijklmnopqrstuvwxyz "
-invLetters = {}
-numLetters = len(letters)
+letters = "abcdefghijklmnopqrstuvwxyz 0123456789"
+inv_letters = {}
+n_letters = len(letters)
 
-for i in range(numLetters):
-    invLetters[letters[i]] = i
+for i in range(n_letters):
+    inv_letters[letters[i]] = i
 
-def encrypt(plain,password):
-    global letters, invLetters, numLetters
+def encrypt(plain, password):
+    global letters, inv_letters, n_letters
     cipher = ""
-    passwordIndex = 0
+    password_index = 0
     for i in range(len(plain)):
-        shift = invLetters[password[passwordIndex]]
-        index = (invLetters[plain[i]] + shift) % numLetters
+        shift = inv_letters[password[password_index]]
+        index = (inv_letters[plain[i]] + shift) % n_letters
         cipher = cipher + letters[index]
-        passwordIndex = (passwordIndex + 1) % len(password)
+        password_index = (password_index + 1) % len(password)
     return cipher
 
 def decrypt(cipher,password):
-    global letters, invLetters, numLetters
+    global letters, inv_letters, n_letters
     plain = ""
-    passwordIndex = 0
+    password_index = 0
     for i in range(len(cipher)):
-        shift = invLetters[password[passwordIndex]]
-        index = (invLetters[cipher[i]] - shift) % numLetters
+        shift = inv_letters[password[password_index]]
+        index = (inv_letters[cipher[i]] - shift) % n_letters
         plain = plain + letters[index]
-        passwordIndex = (passwordIndex + 1) % len(password)
+        password_index = (password_index + 1) % len(password)
     return plain
 
 plain = input("Plain text: ")
