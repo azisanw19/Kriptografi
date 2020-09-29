@@ -18,7 +18,7 @@ bvt2a4g
 bov
 
 cipher
-b0bvjo29 au 4c gv
+b0bvjotvv29*au*4c*gv*
 
 """
 
@@ -77,8 +77,6 @@ password = input("Password: ")
 cipher_vignere = encrypt_vigenere(plain, password)
 cipher_rectangle = encrypt_rectangle(cipher_vignere, len(password))
 print("Cipher: ", cipher_rectangle)
-print("cipher vignere = ", cipher_vignere)
 plain_rectangle = decrypt_rectangle(cipher_rectangle, len(password))
-print("plain rectangle = ", plain_rectangle)
 plain_vignere = decrypt_vigenere(plain_rectangle, password)
 print("plain: ", plain_vignere)
