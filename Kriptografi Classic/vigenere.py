@@ -8,7 +8,7 @@ rajin pangkal pandai
 salio raogmam raodci
 """
 
-letters = "abcdefghijklmnopqrstuvwxyz 0123456789"
+letters = "abcdefghijklmnopqrstuvwxyz "
 inv_letters = {}
 n_letters = len(letters)
 
